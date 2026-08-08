@@ -220,3 +220,70 @@ Tests iziets lokāli. Ja lokāli tests neiziet, GitHub Actions arī būs sarkans
 
 ```powershell
 git status
+git add .
+git commit -m "Pievienota GitHub Actions CI konfiguracija"
+git push
+```
+
+## Pārbaudu GitHub Actions rezultātu
+
+GitHub repozitorijā atveru: **Actions**
+
+Redzams workflow ar nosaukumu: **Python CI pārbaude**
+
+![alt text](Pielikumi/atteli/attels015.png)
+
+Redzams zaļš statuss, tas nozīmē, ka viss ir pareizi.
+
+![alt text](Pielikumi/atteli/attels016.png)
+
+Pēc `git push` GitHub sadaļā Actions parādījās CI izpildes process. Tā kā testi bija korekti, CI statuss kļuva zaļš.
+
+![alt text](Pielikumi/atteli/attels017.png)
+
+---
+---
+
+## Uzdevums 05 – CI eksperiments
+
+Uzdevuma mērķis ir apzināti izraisīt kļūdu testā, nosūtīt kļūdaino versiju uz GitHub, redzēt sarkanu CI statusu, pēc tam kļūdu salabot un panākt zaļu CI statusu.
+
+Atveru failu `test_kalkulators.py`, atrodu vienu pareizu testu, apzināti nomainu pareizo sagaidāmo vērtību 5 uz nepareizu vērtību 6:
+
+```python
+    def test_saskaitit_pozitivus_skaitlus(self):
+        """Pārbauda pozitīvu skaitļu saskaitīšanu."""
+        self.assertEqual(saskaitit(2, 3), 6)
+```
+
+Šajā brīdī funkcija `saskaitit(2, 3)` joprojām atgriež 5, bet tests kļūdaini sagaida 6.
+
+## Pārbaudu kļūdu lokāli
+
+```powershell
+python -m unittest discover
+```
+
+```powershell
+..F
+======================================================================
+FAIL: test_saskaitit_pozitivus_skaitlus (test_kalkulators.TestKalkulators.test_saskaitit_pozitivus_skaitlus)
+Pārbauda pozitīvu skaitļu saskaitīšanu.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\robo\Documents\BUTS\Praktiskie_darbi\05 Programmas koda rakstīšana (Kodēšana)\PB1_PD18 CI pamati un uzdevumu pārvaldība\PB1_PD18_Simkuns_Arturs\test_kalkulators.py", line 13, in test_saskaitit_pozitivus_skaitlus
+    self.assertEqual(saskaitit(2, 3), 6)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+AssertionError: 5 != 6
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=1)
+```
+
+## Veicu commit un push ar kļūdaino testu
+Lai GitHub Actions arī parādītu sarkanu CI statusu, kļūdainais tests jānosūta uz GitHub:
+
+```powershell
+git status

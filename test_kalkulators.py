@@ -10,7 +10,7 @@ class TestKalkulators(unittest.TestCase):
 
     def test_saskaitit_pozitivus_skaitlus(self):
         """Pārbauda pozitīvu skaitļu saskaitīšanu."""
-        self.assertEqual(saskaitit(2, 3), 5)
+        self.assertEqual(saskaitit(2, 3), 6)
 
     def test_saskaitit_negativus_skaitlus(self):
         """Pārbauda negatīvu skaitļu saskaitīšanu."""
