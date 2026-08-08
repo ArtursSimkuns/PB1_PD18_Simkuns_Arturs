@@ -308,4 +308,42 @@ Atveru `test_kalkulators.py` un nomaini nepareizo vērtību atpakaļ uz pareizo.
 
 ## Veicu commit un push ar salaboto testu
 
+```powershell
+git status
+git add .
+git commit -m "Salabots tests pec CI eksperimenta"
+git push
+```
+
+Vēlreiz atveru GitHub: **Actions**
+
+![alt text](Pielikumi/atteli/attels020.png)
+
+Jaunā CI izpilde zaļa.
+
+## Ko novēroju GitHub Actions sadaļā
+
+Divas CI izpildes:
+
+| CI izpilde          | Sagaidāmais statuss | Nozīme                       |
+| ------------------- | ------------------- | ---------------------------- |
+| Pēc sabojāta testa  | Sarkans             | CI atrada kļūdu testā        |
+| Pēc testa labošanas | Zaļš                | Tests atkal iziet bez kļūdām |
+
+Tas parāda automatizētas pārbaudes jēgu: pēc katra `git push` GitHub Actions automātiski pārbauda kodu un uzreiz parāda, vai izmaiņas ir drošas.
+Teorijā CI aprakstīts kā cikls: raksti kodu, veic `commit`, veic `push`, CI palaiž testus, kļūdas gadījumā labo un atkārto procesu.
+
+Pēc apzināti sabojāta testa GitHub Actions sadaļā bija redzams sarkans CI statuss. Pēc testa labošanas un atkārtota `push` CI statuss kļuva zaļš. Eksperiments parādīja, ka CI palīdz ātri pamanīt kļūdas pēc koda nosūtīšanas uz GitHub.
+
+---
+---
+
+# Uzdevums 06 – Definition of Done un refleksija
+
+`README.md` atjaunots saturs.
+
+README sadaļā nevajag rakstīt garu atskaiti. README jābūt īsam projekta lietošanas aprakstam: kas tas ir, kā palaist programmu, kā palaist testus un kāds ir DoD.
+
+
+Pievienoju izmaiņas Git un nosūtu uz GitHub.
 
