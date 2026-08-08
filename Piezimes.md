@@ -170,9 +170,53 @@ Ran 3 tests in 0.000s
 OK
 ```
 
-Tests ir izpildīts veiksmīgi.
+Tests ir izpildīts veiksmīgi. Lokāli testi iziet bez kļūdām, un terminālī redzams rezultāts `OK`.
 
 ## Pievienoju izmaiņas Git
+
+```powershell
+git status
+git add .
+git commit -m "Pievienota funkcija un unittest testi"
+git push
+```
+
+Issue **“Uzrakstīt unittest testus”** pārvietoju uz **Done**, jo tests lokāli izpildās ar `OK`.
+
+![alt text](Pielikumi/atteli/attels013.png)
+
+---
+---
+
+# Uzdevums 04 – CI konfigurēšana
+
+Uzdevuma prasība: jāizveido GitHub Actions konfigurācijas fails `.github/workflows/main.yml`, kas aktivizējas pēc `push`, iestata Python vidi un palaiž testus ar komandu `python -m unittest discover`. Pēc `git push` GitHub Actions sadaļā jābūt redzamam CI izpildes procesam, un korekta testa gadījumā CI statusam jābūt zaļam.
+
+Pirms darba sākšanas pārvietoju Issue Github Projects:
+
+![alt text](Pielikumi/atteli/attels014.png)
+
+Izveidoju failu: `.github/workflows/main.yml` un ievietoju konfigurāciju.
+
+Komandas `on: [push]` nozīmē, ka CI sāk darboties pēc katra `git push`, `actions/checkout` ielādē projekta kodu, bet `python -m unittest` palaiž testus.
+
+## Pārbaudu testus lokāli pirms `push` uz GitHub
+
+```powershell
+python -m unittest discover
+```
+
+```powershell
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+```
+
+Tests iziets lokāli. Ja lokāli tests neiziet, GitHub Actions arī būs sarkans.
+
+## Pievienoju izmaiņas Git un nosūtu uz GitHub
 
 ```powershell
 git status
