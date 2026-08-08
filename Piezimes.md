@@ -347,3 +347,9 @@ README sadaļā nevajag rakstīt garu atskaiti. README jābūt īsam projekta li
 
 Pievienoju izmaiņas Git un nosūtu uz GitHub.
 
+GitHub sadaļā: **Actions** pārbaudīju, vai jaunā CI izpilde ir zaļa.
+
+![alt text](Pielikumi/atteli/attels021.png)
+
+
+Pēc šī soļa Issue **“Atjaunināt README un Definition of Done”** pārvietoju uz **Done**, jo GitHub Actions statuss ir zaļš.
