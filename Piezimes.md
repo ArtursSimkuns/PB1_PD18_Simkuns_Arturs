@@ -287,3 +287,25 @@ Lai GitHub Actions arī parādītu sarkanu CI statusu, kļūdainais tests jānos
 
 ```powershell
 git status
+git add .
+git commit -m "Apzinati sabojats tests CI eksperimentam"
+git push
+```
+
+Pēc `git push` GitHub repozitorijā atveru: **Actions**
+
+![alt text](Pielikumi/atteli/attels018.png)
+
+Tur redzu, ka workflow izpilde ir sarkana.
+
+![alt text](Pielikumi/atteli/attels019.png)
+
+Tas ir salūzis CI pipeline: ja CI ir sarkans, uzdevums nav pabeigts un kļūda jālabo pirms turpināt darbu.
+
+## Salaboju testu
+
+Atveru `test_kalkulators.py` un nomaini nepareizo vērtību atpakaļ uz pareizo.
+
+## Veicu commit un push ar salaboto testu
+
+
