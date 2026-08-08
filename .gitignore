@@ -1,0 +1,14 @@
+# Python kešatmiņa
+__pycache__/
+
+# Kompilētie Python faili
+*.pyc
+
+# VS Code iestatījumi
+.vscode/
+
+# Žurnālfaili
+*.log
+
+# Pagaidu faili
+*.tmp

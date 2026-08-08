@@ -60,6 +60,74 @@ New-Item -ItemType File -Force -Path "test_kalkulators.py"
 New-Item -ItemType File -Force -Path "ci_refleksija.md"
 ```
 
+```powershell
+git add .
+git commit -m "Izveidota sākotnējā projekta struktūra"
+git push -u origin main
+```
+
+Rezultāts:
+Repozitorijā ir redzami vismaz 4 Issues. Projekta Kanban dēlī ir izveidotas kolonnas `To Do`, `In Progress`, `Done`, un uzdevumu statuss tiek mainīts atbilstoši darba progresam.
+
+# Uzdevums 02 – Programmas realizācija
+
+Izveido failu `kalkulators.py` ar funkciju.
+
+## Atjaunoju GitHub Project / Issue statuss
+pirms darba sākšanas pārvieto šo Issue uz `In Progress`
+
+![alt text](Pielikumi/atteli/attels010.png)
+
+Izmantoju pilnīgāku variantu, pievienoju docstring un if __name__ == "__main__": pārbaudes daļu. Tas ļauj funkciju importēt testos bez liekas programmas izpildes.
+Teorijā bija skaidrots, ka aprēķinu funkcijai jābūt atdalītai no tiešas ievades/izvades, lai to varētu viegli pārbaudīt un importēt citos failos.
+
+## Pārbaudīju, vai programma darbojas
+
+PowerShell terminālī projekta saknē palaidu:
+```powershell
+python .\kalkulators.py
+```
+
+Izvade:
+```powershell
+Rezultāts: 15
+```
+
+Papildu pārbaude, vai funkciju var importēt:
+```powershell
+python -c "from kalkulators import saskaitit; print(saskaitit(2, 3))"
+```
+
+Izvade:
+```powershell
+5
+```
+
+Tā kā abas komandas izpildās bez kļūdām, Uzdevums 02 ir izpildīts.
+
+## Pievienoju izmaiņas Git
+
+```powershell
+git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   Pielikumi/atteli/attels010.png
+        modified:   Piezimes.md
+        modified:   kalkulators.py
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Piezimes.md
+        modified:   kalkulators.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+```
 
 
 
