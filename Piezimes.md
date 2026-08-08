@@ -129,5 +129,50 @@ Untracked files:
         .gitignore
 ```
 
+Pievienoju failus Git kontrolei
+```powershell
+git add . 
+git commit -m "Pievienota saskaitisanas funkcija"
+git push
+```
 
+GitHub Project dēlī Issue **“Izveidot funkciju saskaitit”** pārvietoju uz **Done**.
 
+![alt text](Pielikumi/atteli/attels011.png)
+
+# Uzdevums 03 – Testa izveide
+
+Svarīgi: testa faila nosaukumam jāsākas ar `test_`, jo tad `unittest discover` un vēlāk arī CI to automātiski atradīs.
+
+GitHub Project / Issue statuss: pirms darba sākšanas pārvietoju šo Issue:
+![alt text](Pielikumi/atteli/attels012.png)
+
+Failā `test_kalkulators.py` uzrakstīju pārbaudes kodu.
+
+Šis tests importē funkciju no `kalkulators.py` un pārbauda, vai tā dažādos gadījumos atgriež pareizu summu. Teorijā par Python struktūru skaidrots, ka funkciju atdalīšana atsevišķā modulī ļauj šo funkciju importēt un pārbaudīt citos failos.
+
+## Pārbaudīju testu lokāli
+
+```powershell
+python -m unittest discover
+```
+
+divos veidos:
+```powershell
+python test_kalkulators.py
+```
+
+```powershell
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+```
+
+Tests ir izpildīts veiksmīgi.
+
+## Pievienoju izmaiņas Git
+
+```powershell
+git status
